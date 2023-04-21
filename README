@@ -1,0 +1,51 @@
+Python scripts used to  produce the figures for the paper "Linkage among selected sites impacts inference of natural selection in admixed populations."
+
+Requires matplotlib and seaborn
+
+
+
+
+Figure 1:
+    null_simulation_example.py
+
+Figure 2:
+    two_site_hold_selection_lnl.py
+
+Figure 3:
+    two_site_sel.py
+
+Figure 4:
+    multi_site_lnl.py
+
+Figure 5:
+    ahmms_gss_on_3r.py
+
+Figure 6:
+    local_ancestry_comparison.py
+
+Supplemental Figure 1: 
+    pop_size_large.py
+
+Supplemental Figure 2:
+    two_site_hold_sel_loc.py 
+
+Supplemental Figure 3:
+    dominance_lnl.py
+
+Supplemental Figure 4:
+    dominance_sel.py
+
+Supplemental Figure 5:
+    speed_ups.py
+
+Supplemental Figure 6:
+    two_site_miss_t_lnl.py
+
+Supplemental Figure 7:
+    two_site_miss_t_sel.py
+
+Supplemental Figure 8:
+    two_site_miss_m_lnl.py
+
+Supplemental Figure 9:
+    pop_size_examining.py

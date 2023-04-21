@@ -1,0 +1,124 @@
+import matplotlib.pyplot as plt
+import copy
+
+#Loading colors
+color_file = open("color_scheme").readlines()
+color_scheme = {}
+for line in color_file:
+    line = line.split()
+    color_scheme[line[0]] = line[1]
+
+# Loading data
+trueanalysis = open("data/two_site_miss_t_true_2_8", "r").readlines()
+trueanalysis = trueanalysis[1:]
+for i in range(len(trueanalysis)):
+    trueanalysis[i] = trueanalysis[i].split("\t")
+
+falseanalysis = open("data/two_site_miss_t_false_2_8", "r").readlines()
+falseanalysis = falseanalysis[1:]
+for i in range(len(falseanalysis)):
+    falseanalysis[i] = falseanalysis[i].split("\t")
+
+
+
+# Mapping values
+missf_to_i = {"0.5":0, "0.8":1, "1.2":2, "2":3}
+missf = [0.5 , 0.8, 1.2, 2]
+
+generations_to_i = {"100":0, "200":1, "500":2, "1000":3}
+generations = [100, 200, 500, 1000]
+
+
+
+
+
+
+#Creating arrays of lnl
+truelnl_diff = [None]*4
+
+for i in range(4):
+    truelnl_diff[i] = [[],[],[],[]]
+
+falselnl_diff = [None]*4
+
+for i in range(4):
+    falselnl_diff[i] = [[],[],[],[]]
+
+
+for line in trueanalysis:
+    truelnl_diff[generations_to_i[line[1]]][missf_to_i[line[2]]].append(float(line[6]) - float(line[3]))
+
+for line in falseanalysis:
+    falselnl_diff[generations_to_i[line[1]]][missf_to_i[line[2]]].append(float(line[6]) - float(line[3]))
+
+
+
+
+alt_correct = [None]*4
+for i in range(4):
+    alt_correct[i] = [0,0,0,0]
+
+null_correct = [None]*4
+for i in range(4):
+    null_correct[i] = [0,0,0,0]
+
+for i in range(4):
+    for j in range(4):
+        cutoff = 0
+
+        sorted_list = copy.deepcopy(falselnl_diff[i][j])
+        sorted_list.sort()
+
+        cutoff = sorted_list[-2]
+
+        for h in range(20):
+            if truelnl_diff[i][j][h] > cutoff:
+                alt_correct[i][j] += 0.05
+            if falselnl_diff[i][j][h] < cutoff:
+                null_correct[i][j] += 0.05
+
+
+
+
+
+fig, axe = plt.subplots(1, 4, figsize=(7, 2),constrained_layout=True, sharex=False, sharey=True)
+
+
+
+x = [1,2,3,4]
+xlabels = ["0.5","0.8","1.2","2"]
+
+
+
+
+for i in range(4):
+    ax = axe[i]
+    ax.set_ylim([0,1.1])
+    ax.set_yticks([0,0.25,0.5,0.75,1])
+    ax.grid(axis = 'y')
+    ax.set_xticks([1,2,3,4])
+
+    ax.plot(x, alt_correct[i] ,color='black', linestyle='-', marker='s', markersize=5)
+
+    xlabels = missf.copy()
+    for j in range(len(xlabels)):
+        xlabels[j] *= generations[i]
+        xlabels[j] = int(xlabels[j])
+    
+    ax.set_xticklabels(xlabels)
+    ax.yaxis.set_label_position("right")
+
+    
+    ax.set_title("t = " + str(generations[i]))
+
+
+
+
+fig.text(0.5, -0, 'Misspecified Time (Generations)', ha='center')
+fig.text(-0, 0.5, 'Proportion Correct', va='center', rotation='vertical')
+
+
+plt.tight_layout()
+plt.subplots_adjust(wspace=0.2)
+
+plt.show()
