@@ -14,6 +14,8 @@ for line in color_file:
     line = line.split()
     color_scheme[line[0]] = line[1]
 
+plt.rcParams["font.family"] = "Arial"
+
 # Loading data
 slowanalysis = open("data/pop_size_large_slow_temp_4_7", "r").readlines()
 slowanalysis = slowanalysis[1:]

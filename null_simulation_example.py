@@ -8,6 +8,7 @@ for line in color_file:
 	color_scheme[line[0]] = line[1]
 
 
+plt.rcParams["font.family"] = "Arial"
 
 # Loading data
 subsampling = 100

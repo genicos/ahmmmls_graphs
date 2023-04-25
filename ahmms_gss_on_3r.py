@@ -11,6 +11,8 @@ for line in color_file:
     line = line.split()
     color_scheme[line[0]] = line[1]
 
+plt.rcParams["font.family"] = "Arial"
+
 #loading data
 v5_v6_convertion = open("data/3r_v5_v6").readlines()
 morgan_convertion = open("data/3r_v5_morg").readlines()

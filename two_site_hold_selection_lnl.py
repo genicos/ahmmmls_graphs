@@ -13,7 +13,7 @@ for i in range(len(falseanalysis)):
     falseanalysis[i] = falseanalysis[i].split("\t")
 
 
-
+plt.rcParams["font.family"] = "Arial"
 
 
 # Mapping values

@@ -10,6 +10,7 @@ for line in color_file:
     line = line.split()
     color_scheme[line[0]] = line[1]
 
+plt.rcParams["font.family"] = "Arial"
 
 #Opening data files
 output_file_0 = open("data/la_out_peak_0").readlines()

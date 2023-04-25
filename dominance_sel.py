@@ -8,6 +8,8 @@ for line in color_file:
     line = line.split()
     color_scheme[line[0]] = line[1]
 
+plt.rcParams["font.family"] = "Arial"
+
 # Loading data
 trueanalysis = open("data/dominance_true_1_30", "r").readlines()
 trueanalysis = trueanalysis[1:]

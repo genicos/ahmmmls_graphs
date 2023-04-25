@@ -12,6 +12,7 @@ falseanalysis = falseanalysis[1:]
 for i in range(len(falseanalysis)):
     falseanalysis[i] = falseanalysis[i].split("\t")
 
+plt.rcParams["font.family"] = "Arial"
 
 
 # Mapping values
@@ -117,13 +118,13 @@ for i in range(2):
 
         if (i == 0):
             if (j == 0):
-                ax.set_title("dist = 0.01\nsites=3")
+                ax.set_title("dist = 0.01\nsites = 3")
             if (j == 1):
-                ax.set_title("dist = 0.01\nsites=4")
+                ax.set_title("dist = 0.01\nsites = 4")
             if (j == 2):
-                ax.set_title("dist = 0.02\nsites=3")
+                ax.set_title("dist = 0.02\nsites = 3")
             if (j == 3):
-                ax.set_title("dist = 0.02\nsites=4")
+                ax.set_title("dist = 0.02\nsites = 4")
         if (j == 3):
             ax.set_ylabel("s = "+str(selections[i]))
 

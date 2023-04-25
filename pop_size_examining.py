@@ -9,6 +9,8 @@ for line in color_file:
     line = line.split()
     color_scheme[line[0]] = line[1]
 
+plt.rcParams["font.family"] = "Arial"
+
 # Loading data
 trueanalysis = open("data/pop_size_true_3_27", "r").readlines()
 trueanalysis = trueanalysis[1:]
@@ -88,7 +90,7 @@ ax3 = [fig.add_subplot(gs[2,i]) for i in range(4)]
 
 
 x = [1,2,3,4]
-xlabels = ["N=10000","N=5000","N=1000","N=500"]
+xlabels = ["Ne = 10000","Ne = 5000","Ne = 1000","Ne = 500"]
 
 
 

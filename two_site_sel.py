@@ -8,6 +8,7 @@ for line in color_file:
     line = line.split()
     color_scheme[line[0]] = line[1]
 
+plt.rcParams["font.family"] = "Arial"
 
 #Loading data
 trueanalysis = open("data/two_site_true_4_14", "r").readlines()
