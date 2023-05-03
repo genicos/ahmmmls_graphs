@@ -48,7 +48,7 @@ for line in trueanalysis:
 
 
 #Plotting
-fig, axe = plt.subplots(4, 4, constrained_layout=True, sharex=True,sharey=True)
+fig, axe = plt.subplots(4, 4, tight_layout=True, sharex=True,sharey=True)
 
 
 for i in range(4):
@@ -70,13 +70,11 @@ for i in range(4):
             ax.set_ylabel("dist = "+str(dist[i]))
 
 
-fig.text(0.5, 0.0, 'Position (Morgans)', ha='center')
-fig.text(0.0, 0.5, 'Position (Morgans)', va='center', rotation='vertical')
+fig.text(0.5, 0.01, 'Position (Morgans)', ha='center')
+fig.text(0.01, 0.5, 'Position (Morgans)', va='center', rotation='vertical')
 
 
+fig.tight_layout()
+plt.subplots_adjust(bottom=0.1, left=0.1, top=0.9, right=0.9)
 
-
-plt.subplots_adjust(wspace=0.15, hspace=0.15)
-
-plt.tight_layout()
 plt.show()

@@ -145,11 +145,11 @@ for i in range(4):
 
 
 
-fig.text(0.5, -0, 'Admixture Time (Generations)', ha='center')
-fig.text(-0, 0.5, 'Proportion Correct', va='center', rotation='vertical')
+fig.text(0.5, 0.01, 'Admixture Time (Generations)', ha='center')
+fig.text(0.01, 0.5, 'Proportion Correct', va='center', rotation='vertical')
 
 
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2, hspace=0.3)
+plt.subplots_adjust(bottom=0.1, left=0.1, top=0.9, right=0.9,wspace=0.2, hspace=0.3)
 
 plt.show()

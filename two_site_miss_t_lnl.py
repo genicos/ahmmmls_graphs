@@ -83,7 +83,7 @@ for i in range(4):
 
 
 
-fig, axe = plt.subplots(1, 4, figsize=(7, 2),constrained_layout=True, sharex=False, sharey=True)
+fig, axe = plt.subplots(1, 4, figsize=(7, 2.5),tight_layout=True, sharex=False, sharey=True)
 
 
 
@@ -116,11 +116,12 @@ for i in range(4):
 
 
 
-fig.text(0.5, -0, 'Misspecified Time (Generations)', ha='center')
-fig.text(-0, 0.5, 'Proportion Correct', va='center', rotation='vertical')
+fig.text(0.5, 0.015, 'Misspecified Time (Generations)', ha='center')
+fig.text(0.01, 0.5, 'Proportion Correct', va='center', rotation='vertical')
 
 
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2)
+
+plt.subplots_adjust(bottom=0.2, left=0.1, top=0.8, right=0.9, wspace=0.2)
 
 plt.show()

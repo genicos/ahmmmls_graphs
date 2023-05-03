@@ -62,7 +62,7 @@ for i in range(4):
     for j in range(20):
         x[i].append((i+1) - 0.25 + (j/20)*0.5)
 
-fig, axe = plt.subplots(1, 4, figsize=(8, 2),constrained_layout=True, sharex=False, sharey=True)
+fig, axe = plt.subplots(1, 4, figsize=(8, 2.5),constrained_layout=True, sharex=False, sharey=True)
 
 
 count_all = 20*4*2*2
@@ -106,12 +106,12 @@ for i in range(4):
 
 
 
-fig.text(0.5, -0, 'Misspecified Time (Generations)', ha='center')
-fig.text(-0, 0.5, 'Selection Coefficient', va='center', rotation='vertical')
+fig.text(0.5, 0.015, 'Misspecified Time (Generations)', ha='center')
+fig.text(0.01, 0.5, 'Selection Coefficient', va='center', rotation='vertical')
 
 
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2)
+plt.subplots_adjust(bottom=0.2, left=0.08, top=0.8, right=0.92, wspace=0.2)
 
 
 plt.show()

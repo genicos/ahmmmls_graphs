@@ -129,11 +129,11 @@ for i in range(2):
             ax.set_ylabel("s = "+str(selections[i]))
 
         
-fig.text(0.5, -0, 'Admixture Time (Generations)', ha='center')
-fig.text(-0, 0.5, 'Proportion Correct', va='center', rotation='vertical')
+fig.text(0.5, 0.01, 'Admixture Time (Generations)', ha='center')
+fig.text(0.01, 0.5, 'Proportion Correct', va='center', rotation='vertical')
 
 
 plt.tight_layout()
-plt.subplots_adjust(wspace = 0.2, hspace = 0.2)
+plt.subplots_adjust(bottom=0.11, left=0.1, top=0.89, right=0.9,wspace = 0.2, hspace = 0.2)
 
 plt.show()
