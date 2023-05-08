@@ -25,6 +25,7 @@ morg_coords = []
 coords = []
 coords_million = []
 lnl_ratio = []
+sel_coeff = []
 
 i = 0
 j = 0
@@ -36,6 +37,7 @@ for line in ahmms_out:
     v5_coords.append(float(line[0]))
     morg_coords.append(float(morgan_convertion[j].split()[1]))
     lnl_ratio.append(float(line[2]))
+    sel_coeff.append(float(line[1]))
     j +=1
 
 
@@ -44,6 +46,7 @@ sites_loc_v6 = []
 sites_loc_v5 = []
 sites_loc_morgan = []
 sites_lnl = []
+sites_sel = []
 
 
 
@@ -73,6 +76,8 @@ for i in range(len(coords)):
         sites_loc_v5.append(v5_coords[i])
         sites_loc_morgan.append(morg_coords[i])
         sites_lnl.append(lnl_ratio[i])
+        sites_sel.append(sel_coeff[i])
+
 
 
 
@@ -108,6 +113,7 @@ for i in range(len(peaks)):
 sites_loc_million = []
 for i in range(len(sites_loc_v6)):
     sites_loc_million.append(sites_loc_v6[i] / 1000000)
+
 
 plt.figure(figsize=(6, 2))
 

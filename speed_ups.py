@@ -83,11 +83,11 @@ for i in range(2):
 
 
 
-fig.text(-0, 0.5, 'Selection Coefficient', va='center', rotation='vertical')
+fig.text(0.005, 0.5, 'Selection Coefficient', va='center', rotation='vertical')
 
 
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.1, hspace=0.2)
+plt.subplots_adjust(left=0.1,wspace=0.1, hspace=0.2)
 
 
 plt.show()

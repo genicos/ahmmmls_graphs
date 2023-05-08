@@ -80,7 +80,7 @@ for i in range(3):
 
 
 
-fig.text(-0, 0.5, 'Selection Coefficient', va='center', rotation='vertical')
+fig.text(0.003, 0.5, 'Selection Coefficient', va='center', rotation='vertical')
 
 
 plt.tight_layout()

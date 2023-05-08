@@ -26,7 +26,8 @@ data_la_1 = open("data/3r_la").readlines()
 del data_la_1[0]
 
 
-
+peaks_Mbp = [7.902911, 10.929688, 12.088159, 13.252609, 14.26594, 15.059211, 15.886213, 17.285433, 18.180006, 19.040971, 20.296515, 20.760957, 22.180826, 23.671208, 25.259173, 27.968478, 31.372821]
+peaks_sel = [0.00731468079255, 0.00936695712199, 0.00925536872807, 0.0126567677038, 0.0071032847049, 0.0123836870691, 0.0100202069583, 0.00901313036688, 0.00718403082529, 0.00611526968684, 0.0128182599446, 0.0123836870691, 0.0105736491008, 0.00880173427923, 0.00739542691294, 0.00530052760977, 0.00557360824448]
 
 
 v5_v6_convertion = open("data/3r_v5_v6").readlines()
@@ -87,6 +88,9 @@ for line in data_la_1:
         data_traj_1.append(float(line[2]))
         i = 0
     i += 1
+
+
+
 
 
 #Grabbing model
@@ -150,9 +154,11 @@ fig, axe = plt.subplots(3, 2, figsize=(7,5), constrained_layout=True, sharex="co
 fig.align_ylabels(axe[:])
 
 
+axe[0][0].scatter(peaks_Mbp, peaks_sel, color=color_scheme["blue"], s=6, marker='*')
+axe[0][1].scatter(peaks_Mbp, peaks_sel, color=color_scheme["blue"], s=6, marker='*')
 
 axe[0][0].set_xlim(million_bp_range_0)
-axe[0][0].set_ylim([0,0.011])
+axe[0][0].set_ylim([0,0.015])
 markerline, stemlines, baseline = axe[0][0].stem(model_loc_million_bp_0, model_sel_0, bottom=-2)
 plt.setp(stemlines, 'color', color_scheme["yellow"])
 plt.setp(markerline, 'color', color_scheme["yellow"])
@@ -173,7 +179,7 @@ axe[2][0].set_xlabel("Position (Mbp)", fontsize=12)
 
 
 axe[0][1].set_xlim(million_bp_range_1)
-axe[0][1].set_ylim([0,0.011])
+axe[0][1].set_ylim([0,0.015])
 markerline, stemlines, baseline = axe[0][1].stem(model_loc_million_bp_1, model_sel_1, bottom=-2)
 plt.setp(stemlines, 'color', color_scheme["yellow"])
 plt.setp(markerline, 'color', color_scheme["yellow"])
@@ -187,6 +193,8 @@ axe[2][1].set_ylim([-diff_bound,diff_bound])
 axe[2][1].plot(v6_coords_sampled_million, difference_1, color=color_scheme["blue"])
 axe[2][1].axhline(0, ls='--', color=color_scheme["gray"], lw=1)
 axe[2][1].set_xlabel("Position (Mbp)", fontsize=12)
+
+
 
 plt.tight_layout()
 plt.show()

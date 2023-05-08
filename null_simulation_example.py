@@ -206,9 +206,9 @@ axe[3][0].text(morgan_cutoff/2, -0.5, 'Position (Mbp)', horizontalalignment='cen
 
 axe[3][1].text(210, -0.0, 'lnL ratio', horizontalalignment='center')
 
-fig.text(-0, 0.5, 'Local Ancestry Proportion', va='center', rotation='vertical')
+fig.text(0.005, 0.5, 'Local Ancestry Proportion', va='center', rotation='vertical')
 
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.05, hspace=0.2)
+plt.subplots_adjust(left = 0.08, wspace=0.05, hspace=0.2)
 
 plt.show()
