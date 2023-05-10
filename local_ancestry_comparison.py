@@ -165,10 +165,14 @@ plt.setp(markerline, 'color', color_scheme["yellow"])
 plt.setp(markerline, markersize = 3)
 axe[0][0].set_ylabel("Selection\nCoefficient", fontsize=12)
 
+axe[0][0].annotate("A", xy=(-0.32, 1.1), xycoords="axes fraction", weight="bold", fontsize=12)
+
 axe[1][0].set_ylim([0,1])
 axe[1][0].plot(v6_coords_sampled_million, data_traj_0, color=color_scheme["blue"])
 axe[1][0].plot(v6_coords_sampled_million, model_traj_0, color=color_scheme["yellow"])
 axe[1][0].set_ylabel("Average LA\nProportion", fontsize=12)
+
+axe[1][0].annotate("B", xy=(-0.32, 1.04), xycoords="axes fraction", weight="bold", fontsize=12)
 
 axe[2][0].set_ylim([-diff_bound,diff_bound])
 axe[2][0].plot(v6_coords_sampled_million, difference_0, color=color_scheme["blue"])
@@ -176,6 +180,7 @@ axe[2][0].axhline(0, ls='--', color=color_scheme["gray"], lw=1)
 axe[2][0].set_ylabel("LA Proportion\nError", fontsize=12)
 axe[2][0].set_xlabel("Position (Mbp)", fontsize=12)
 
+axe[2][0].annotate("C", xy=(-0.32, 1.05), xycoords="axes fraction", weight="bold", fontsize=12)
 
 
 axe[0][1].set_xlim(million_bp_range_1)

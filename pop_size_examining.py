@@ -60,8 +60,8 @@ location_two0 = [[],[],[],[]]
 location_two1 = [[],[],[],[]]
 
 for line in trueanalysis:
-	location_two0[pop_to_i[line[1]]].append(float(line[7]))
-	location_two1[pop_to_i[line[1]]].append(float(line[9]))
+	location_two0[pop_to_i[line[1]]].append(float(line[7]) - 0.09)
+	location_two1[pop_to_i[line[1]]].append(float(line[9]) - 0.11)
 
 #Creating arrays of selection
 two_site_0_sel = [[],[],[],[]]
@@ -100,32 +100,35 @@ ax1.set_ylim([0,1.1])
 ax1.set_yticks([0,0.25,0.5,0.75,1])
 ax1.grid(axis = 'y')
 ax1.set_xticks([1,2,3,4])
-ax1.set_xlim([0.65, 4.35])
+ax1.set_xlim([0.66, 4.34])
 ax1.tick_params(labelbottom=False)
 
-ax1.set(ylabel='Proportion Correct')
+ax1.set_ylabel('Proportion Correct', labelpad=10)
 
 
 ax1.plot(x, alt_correct ,color='black', linestyle='-', marker='s', markersize=5)
 
+ax1.annotate("A", xy=(-0.15, 1), xycoords="axes fraction", weight="bold", fontsize=12)
 
 
 
 #Plotting location
-
 for i in range(4):
 	ax = ax2[i]
 
 	ax.scatter(location_two0[i],location_two1[i],s=1, color=color_scheme["blue"])
 
 
-	ax.axhline(0.11,color='black', zorder=0, linewidth=0.5)
-	ax.axvline(0.09,color='black', zorder=0, linewidth=0.5)
+	ax.axhline(0,color='black', zorder=0, linewidth=0.5)
+	ax.axvline(0,color='black', zorder=0, linewidth=0.5)
 
-	ax.set_xlim([0.075, 0.1])
-	ax.set_ylim([0.1, 0.125])
+	#ax.set_xlim([0.075, 0.1])
+	#ax.set_ylim([0.1, 0.125])
+	ax.set_xlim([-0.02, 0.02])
+	ax.set_ylim([-0.02, 0.02])
+	ax.set_aspect('equal')
 
-	ax.set_xticks([0.08, 0.09, 0.1])
+	#ax.set_xticks([0.08, 0.09, 0.1])
 
 	if (i > 0):
 		ax.set_yticklabels([])
@@ -133,6 +136,7 @@ for i in range(4):
 		ax.set(ylabel='Position (Morgans)')
 	#ax.set_title("N = " + str(pop[i]))
 
+ax2[0].annotate("B", xy=(-0.82, 1), xycoords="axes fraction", weight="bold", fontsize=12)
 
 #Plotting selection
 site_labels = ["Site one", "Site two"]
@@ -143,6 +147,8 @@ for i in range(2):
 	for j in range(20):
 		x[i].append((i+1) - 0.25 + (j/20)*0.5)
 
+print(x)
+
 for i in range(4):
 	ax = ax3[i]
 	ax.set_xticks([1,2])
@@ -150,16 +156,20 @@ for i in range(4):
 
 	ax.scatter(x[0], two_site_0_sel[i], s=1, color=color_scheme["blue"])
 	ax.scatter(x[1], two_site_1_sel[i], s=1, color=color_scheme["cyan"])
+	
 
 	ax.set_ylim([0,0.04])
+	ax.set_xlim([0.7,2.3])
+	ax.set_aspect(40)
+
 	ax.axhline(y = 0.01, color='black')
 	ax.grid(axis = 'y')
 	if (i > 0):
 		ax.set_yticklabels([])
 	else:
-		ax.set(ylabel='Selection Coefficient')
+		ax.set_ylabel('Selection Coefficient', labelpad=10)
 	
 	ax.set(xlabel=xlabels[i])
 
-
+ax3[0].annotate("C", xy=(-0.82, 1), xycoords="axes fraction", weight="bold", fontsize=12)
 plt.show()
