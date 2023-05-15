@@ -74,41 +74,31 @@ for line in trueanalysis:
 
 
 
-
-
-def format_axes(fig):
-    for i, ax in enumerate(fig.axes):
-        ax.text(0.5, 0.5, "ax%d" % (i+1), va="center", ha="center")
-        ax.tick_params(labelbottom=False, labelleft=False)
-
-fig = plt.figure(layout="constrained")
-
-gs = GridSpec(3, 4, figure=fig)
-ax1 = fig.add_subplot(gs[0, :])
-ax2 = [fig.add_subplot(gs[1,i]) for i in range(4)]
-ax3 = [fig.add_subplot(gs[2,i]) for i in range(4)]
-
+fig, ax = plt.subplots(3, 4, constrained_layout=True, sharex = "row", sharey="row")
 
 x = [1,2,3,4]
 xlabels = ["Ne = 10000","Ne = 5000","Ne = 1000","Ne = 500"]
 
-
+ax1 = ax[0]
+ax2 = ax[1]
+ax3 = ax[2]
 
 
 # Plotting lnl
-ax1.set_ylim([0,1.1])
-ax1.set_yticks([0,0.25,0.5,0.75,1])
-ax1.grid(axis = 'y')
-ax1.set_xticks([1,2,3,4])
-ax1.set_xlim([0.66, 4.34])
-ax1.tick_params(labelbottom=False)
+ax1[0].set_ylim([0,1.1])
+ax1[0].set_yticks([0,0.25,0.5,0.75,1])
+ax1[0].set_ylabel('Proportion Correct', labelpad=10)
+for i in range(4):
+	ax1[i].grid(axis = 'y')
+	ax1[i].set_xticks([1,2,3,4])
+	ax1[i].set_xlim([0, 1])
+	ax1[i].tick_params(labelbottom=False)
 
-ax1.set_ylabel('Proportion Correct', labelpad=10)
+	ax1[i].plot(0.5, alt_correct[i],color='black', linestyle='-', marker='s', markersize=5)
 
+	ax1[i].set_title(xlabels[i])
 
-ax1.plot(x, alt_correct ,color='black', linestyle='-', marker='s', markersize=5)
-
-ax1.annotate("A", xy=(-0.15, 1), xycoords="axes fraction", weight="bold", fontsize=12)
+ax1[0].annotate("A", xy=(-0.82, 1), xycoords="axes fraction", weight="bold", fontsize=12)
 
 
 
@@ -122,21 +112,19 @@ for i in range(4):
 	ax.axhline(0,color='black', zorder=0, linewidth=0.5)
 	ax.axvline(0,color='black', zorder=0, linewidth=0.5)
 
-	#ax.set_xlim([0.075, 0.1])
-	#ax.set_ylim([0.1, 0.125])
 	ax.set_xlim([-0.02, 0.02])
 	ax.set_ylim([-0.02, 0.02])
 	ax.set_aspect('equal')
 
-	#ax.set_xticks([0.08, 0.09, 0.1])
 
-	if (i > 0):
-		ax.set_yticklabels([])
-	else:
+	if i == 0:
+		ax.set_yticks([-0.02,0,0.02])
 		ax.set(ylabel='Position (Morgans)')
-	#ax.set_title("N = " + str(pop[i]))
+	
+	ax.set(xlabel='Position (Morgans)')
 
 ax2[0].annotate("B", xy=(-0.82, 1), xycoords="axes fraction", weight="bold", fontsize=12)
+
 
 #Plotting selection
 site_labels = ["Site one", "Site two"]
@@ -164,12 +152,11 @@ for i in range(4):
 
 	ax.axhline(y = 0.01, color='black')
 	ax.grid(axis = 'y')
-	if (i > 0):
-		ax.set_yticklabels([])
-	else:
+
+	if i == 0:
 		ax.set_ylabel('Selection Coefficient', labelpad=10)
 	
-	ax.set(xlabel=xlabels[i])
+	
 
 ax3[0].annotate("C", xy=(-0.82, 1), xycoords="axes fraction", weight="bold", fontsize=12)
 plt.show()
