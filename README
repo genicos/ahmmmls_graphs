@@ -1,4 +1,4 @@
-Python scripts used to  produce the figures for the paper "Interference caused by multi-locus selection in admixed populations."
+Python scripts used to  produce the figures for the paper "Inferring multi-locus selection in admixed populations"
 
 Requires matplotlib and seaborn
 
