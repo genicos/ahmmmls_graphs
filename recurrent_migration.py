@@ -11,21 +11,25 @@ for line in color_file:
 
 plt.rcParams["font.family"] = "Arial"
 
+
+
 # Loading data
-trueanalysis = open("data/pop_size_true_3_27", "r").readlines()
+trueanalysis = open("data/recurrent_migration_true_8_17", "r").readlines()
 trueanalysis = trueanalysis[1:]
 for i in range(len(trueanalysis)):
     trueanalysis[i] = trueanalysis[i].split("\t")
 
-falseanalysis = open("data/pop_size_false_3_27", "r").readlines()
+falseanalysis = open("data/recurrent_migration_false_8_17", "r").readlines()
 falseanalysis = falseanalysis[1:]
 for i in range(len(falseanalysis)):
     falseanalysis[i] = falseanalysis[i].split("\t")
 
 
+
+
 # Mapping values
-pop_to_i = {"10000":0, "5000":1, "1000":2, "500":3}
-pop = [10000,5000,1000, 500]
+value_to_i = {"0.0001":0, "0.0002":1, "0.0005":2, "0.001":3}
+value = [0.01, 0.02, 0.05, 0.1]
 
 
 #Creating arrays of lnl
@@ -34,10 +38,10 @@ truelnl_diff = [[],[],[],[]]
 falselnl_diff = [[],[],[],[]]
 
 for line in trueanalysis:
-    truelnl_diff[pop_to_i[line[1]]].append(float(line[5]) - float(line[2]))
+    truelnl_diff[value_to_i[line[1]]].append(float(line[5]) - float(line[2]))
 
 for line in falseanalysis:
-    falselnl_diff[pop_to_i[line[1]]].append(float(line[5]) - float(line[2]))
+    falselnl_diff[value_to_i[line[1]]].append(float(line[5]) - float(line[2]))
 
 
 alt_correct = [0,0,0,0]
@@ -60,16 +64,16 @@ location_two0 = [[],[],[],[]]
 location_two1 = [[],[],[],[]]
 
 for line in trueanalysis:
-	location_two0[pop_to_i[line[1]]].append(float(line[7]) - 0.09)
-	location_two1[pop_to_i[line[1]]].append(float(line[9]) - 0.11)
+	location_two0[value_to_i[line[1]]].append(float(line[7]) - 0.09)
+	location_two1[value_to_i[line[1]]].append(float(line[9]) - 0.11)
 
 #Creating arrays of selection
 two_site_0_sel = [[],[],[],[]]
 two_site_1_sel = [[],[],[],[]]
 
 for line in trueanalysis:
-	two_site_0_sel[pop_to_i[line[1]]].append(float(line[6]))
-	two_site_1_sel[pop_to_i[line[1]]].append(float(line[8]))
+	two_site_0_sel[value_to_i[line[1]]].append(float(line[6]))
+	two_site_1_sel[value_to_i[line[1]]].append(float(line[8]))
 
 
 
@@ -77,7 +81,7 @@ for line in trueanalysis:
 fig, ax = plt.subplots(3, 4, constrained_layout=True, sharex = "row", sharey="row")
 
 x = [1,2,3,4]
-xlabels = ["Ne = 10000","Ne = 5000","Ne = 1000","Ne = 500"]
+xlabels = ["0.0001","0.0002","0.0005","0.001"]
 
 ax1 = ax[0]
 ax2 = ax[1]
@@ -87,7 +91,7 @@ ax3 = ax[2]
 # Plotting lnl
 ax1[0].set_ylim([0,1.1])
 ax1[0].set_yticks([0,0.25,0.5,0.75,1])
-ax1[0].set_ylabel('Proportion Correct', labelpad=10)
+ax1[0].set_ylabel('Proportion Correct', labelpad=10 )
 for i in range(4):
 	ax1[i].grid(axis = 'y')
 	ax1[i].set_xticks([1,2,3,4])

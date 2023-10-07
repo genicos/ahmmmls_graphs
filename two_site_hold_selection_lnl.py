@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 import copy
 
 # Loading data
-trueanalysis = open("data/two_site_hold_selection_true_2_8", "r").readlines()
+trueanalysis = open("data/two_site_hold_selection_true_8_9", "r").readlines()
 trueanalysis = trueanalysis[1:]
 for i in range(len(trueanalysis)):
     trueanalysis[i] = trueanalysis[i].split("\t")
 
-falseanalysis = open("data/two_site_hold_selection_false_2_8", "r").readlines()
+falseanalysis = open("data/two_site_hold_selection_false_8_9", "r").readlines()
 falseanalysis = falseanalysis[1:]
 for i in range(len(falseanalysis)):
     falseanalysis[i] = falseanalysis[i].split("\t")

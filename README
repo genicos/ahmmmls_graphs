@@ -9,43 +9,67 @@ Figure 1:
     null_simulation_example.py
 
 Figure 2:
-    two_site_hold_selection_lnl.py
+    two_site_hold_selection_lnl.py 
 
 Figure 3:
     two_site_sel.py
 
 Figure 4:
-    multi_site_lnl.py
+    multi_site_lnl.py 
 
 Figure 5:
-    ahmms_gss_on_3r.py
+    ahmms_gss_on_melanogaster.py
 
 Figure 6:
-    local_ancestry_comparison.py
+    local_ancestry_comparison_melanogaster.py
 
-Supplemental Figure 1: 
+Figure 7:
+    ahmms_gss_on_italiae.py
+
+Figure 8:
+    local_ancestry_comparison_italiae.py
+
+Supplemental Figure 1
+    pop_size_all_sizes.py
+
+Supplemental Figure 2: 
     pop_size_large.py
 
-Supplemental Figure 2:
+Supplemental Figure 3:
     two_site_hold_sel_loc.py 
 
-Supplemental Figure 3:
+Supplemental Figure 4:
     dominance_lnl.py
 
-Supplemental Figure 4:
+Supplemental Figure 5:
     dominance_sel.py
 
-Supplemental Figure 5:
-    speed_ups.py
-
 Supplemental Figure 6:
-    two_site_miss_t_lnl.py
+    recurrent_migration.py
 
 Supplemental Figure 7:
-    two_site_miss_t_sel.py
+    cline_simple.py
 
 Supplemental Figure 8:
-    two_site_miss_m_lnl.py
+    epistasis.py 
 
 Supplemental Figure 9:
-    pop_size_examining.py
+    two_site_miss_t_lnl.py
+
+Supplemental Figure 10:
+    two_site_miss_m_lnl.py
+
+Supplemental Figure 11:
+    recomb_piece_scaling.py 
+
+Supplemental Figure 12:
+    recomb_whole_scaling.py 
+
+Supplemental Figure 13:
+    italiae_tract_lengths.py
+
+Supplemental Figure 14:
+    speed_ups.py
+
+Supplemental Figure 15:
+    two_site_miss_t_sel.py

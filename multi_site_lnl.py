@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 import copy
 
 # Loading data
-trueanalysis = open("data/multi_site_true_2_8", "r").readlines()
+trueanalysis = open("data/multi_site_true_8_31", "r").readlines()
 trueanalysis = trueanalysis[1:]
 for i in range(len(trueanalysis)):
     trueanalysis[i] = trueanalysis[i].split("\t")
 
-falseanalysis = open("data/multi_site_false_2_11", "r").readlines()
+falseanalysis = open("data/multi_site_false_8_31", "r").readlines()
 falseanalysis = falseanalysis[1:]
 for i in range(len(falseanalysis)):
     falseanalysis[i] = falseanalysis[i].split("\t")
@@ -22,8 +22,8 @@ selections = [0.005, 0.01]
 dist_to_i = {"0.01":0, "0.02":1}
 dist = [0.01, 0.02]
 
-generations_to_i = {"200":0, "500":1}
-generations = [200, 500]
+generations_to_i = {"100":0,"200":1,"500":2, "1000":3}
+generations = [100, 200, 500, 1000]
 
 sites_to_i = {"3":0,"4":1}
 sites = [3,4]
@@ -33,16 +33,16 @@ sites = [3,4]
 
 
 #Creating arrays of lnl
-truelnl_diff = [[None]*2,[None]*2]
+truelnl_diff = [[None]*4,[None]*4]
 
 for i in range(2):
-    for j in range(2):
+    for j in range(4):
         truelnl_diff[i][j] = [[[],[]],[[],[]]]
 
-falselnl_diff = [[None]*2,[None]*2]
+falselnl_diff = [[None]*4,[None]*4]
 
 for i in range(2):
-    for j in range(2):
+    for j in range(4):
         falselnl_diff[i][j] = [[[],[]],[[],[]]]
 
 
@@ -57,19 +57,19 @@ for line in falseanalysis:
 
 
 
-alt_correct = [[None]*2,[None]*2]
+alt_correct = [[None]*4,[None]*4]
 for i in range(2):
-    for j in range(2):
+    for j in range(4):
         alt_correct[i][j] = [[0,0],[0,0]]
 
-null_correct = [[None]*2,[None]*2]
+null_correct = [[None]*4,[None]*4]
 for i in range(2):
-    for j in range(2):
+    for j in range(4):
         null_correct[i][j] = [[0,0],[0,0]]
 
 
 for i in range(2):
-    for j in range(2):
+    for j in range(4):
         for k in range(2):
             for l in range(2):
                 cutoff = 0
@@ -103,16 +103,15 @@ for i in range(2):
         ax.set_yticks([0,0.25,0.5,0.75,1])
         ax.grid(axis = 'y')
 
-        null_correct_time = [null_correct[a][0][b][c], null_correct[a][1][b][c]]
-        alt_correct_time = [alt_correct[a][0][b][c], alt_correct[a][1][b][c]]
+        alt_correct_time = [alt_correct[a][0][b][c], alt_correct[a][1][b][c], alt_correct[a][2][b][c], alt_correct[a][3][b][c]]
         
-        ax.set_xticks([0,1])
-        ax.set_xlim([-0.5,1.5])
-        ax.set_xticklabels(["200","500"])
+        ax.set_xticks([0,1,2,3])
+        ax.set_xlim([-0.5,3.5])
+        ax.set_xticklabels(["100","200","500","1000"])
 
 
         #ax.plot([0,1], null_correct_time,color='black', linestyle='-', marker='D', markerfacecolor='none', markersize=3)
-        ax.plot([0,1], alt_correct_time,color='black', linestyle='-', marker='s', markersize=5)
+        ax.plot([0,1,2,3], alt_correct_time,color='black', linestyle='-', marker='s', markersize=5)
 
         ax.yaxis.set_label_position("right")
 
