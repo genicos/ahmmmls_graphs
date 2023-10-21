@@ -5,31 +5,32 @@ Requires matplotlib and seaborn
 
 
 
-Figure 1:
+Figure 2:
     null_simulation_example.py
 
-Figure 2:
+Figure 3:
     two_site_hold_selection_lnl.py 
 
-Figure 3:
+Figure 4:
     two_site_sel.py
 
-Figure 4:
+Figure 5:
     multi_site_lnl.py 
 
-Figure 5:
+Figure 6:
     ahmms_gss_on_melanogaster.py
 
-Figure 6:
+Figure 7:
     local_ancestry_comparison_melanogaster.py
 
-Figure 7:
+Figure 8:
     ahmms_gss_on_italiae.py
 
-Figure 8:
+Figure 9:
     local_ancestry_comparison_italiae.py
 
-Supplemental Figure 1
+
+Supplemental Figure 1:
     pop_size_all_sizes.py
 
 Supplemental Figure 2: 
@@ -45,31 +46,34 @@ Supplemental Figure 5:
     dominance_sel.py
 
 Supplemental Figure 6:
-    recurrent_migration.py
-
-Supplemental Figure 7:
-    cline_simple.py
-
-Supplemental Figure 8:
-    epistasis.py 
-
-Supplemental Figure 9:
-    two_site_miss_t_lnl.py
-
-Supplemental Figure 10:
-    two_site_miss_m_lnl.py
-
-Supplemental Figure 11:
-    recomb_piece_scaling.py 
-
-Supplemental Figure 12:
-    recomb_whole_scaling.py 
-
-Supplemental Figure 13:
-    italiae_tract_lengths.py
-
-Supplemental Figure 14:
     speed_ups.py
 
-Supplemental Figure 15:
+Supplemental Figure 7:
+    two_site_miss_t_lnl.py
+
+Supplemental Figure 8:
     two_site_miss_t_sel.py
+
+Supplemental Figure 9:
+    two_site_miss_m_lnl.py
+
+Supplemental Figure 10:
+    recomb_piece_scaling.py 
+
+Supplemental Figure 11:
+    recomb_whole_scaling.py 
+
+Supplemental Figure 12:
+    cline_simple.py
+
+Supplemental Figure 13:
+    recurrent_migration.py
+
+Supplemental Figure 14:
+    epistasis.py
+
+Supplemental Figure 15:
+    italiae_tract_lengths.py
+
+
+
