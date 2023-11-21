@@ -172,9 +172,9 @@ for i in range(4):
 
 	axe[i][0].axvline(0.1, color=color_scheme["gray"])
 	if i > 0:
-		axe[i][0].axvline(0.2, color=color_scheme["gray"])
-	if i > 1:
 		axe[i][0].axvline(0.12, color=color_scheme["gray"])
+	if i > 1:
+		axe[i][0].axvline(0.2, color=color_scheme["gray"])
 	if i > 2:
 		axe[i][0].axvline(0.179, color=color_scheme["gray"])
 
